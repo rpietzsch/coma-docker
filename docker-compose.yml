@@ -1,0 +1,13 @@
+mysql:
+  image: "mysql:5.7"
+  environment:
+    - MYSQL_ROOT_PASSWORD=coma
+    - MYSQL_DATABASE=coma
+    - MYSQL_USER=coma
+    - MYSQL_PASSWORD=coma
+coma:
+  build: .
+  ports:
+    - "5900:5900"
+  links:
+    - mysql
