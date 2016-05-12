@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Xvfb :0 -screen 0 1024x768x16 &
+/usr/bin/Xvfb :0 -screen 0 1366x768x16 &
 
 x11vnc -forever -usepw -create
 

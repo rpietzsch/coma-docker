@@ -19,7 +19,7 @@ RUN \
 # http://www.labouisse.com/misc/2014/06/19/tomcat-startup-time-surprises/
 ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
 
-# Install vnc, xvfb in order to create a 'fake' display and firefox
+# Install vnc, xvfb in order to create a 'fake' display
 RUN \
     apt-get install -y x11vnc xvfb xinit && \
     mkdir ~/.vnc && \
@@ -34,8 +34,9 @@ RUN cp -r /tmp/coma\ 3.0\ ce\ v3/* /data/coma/
 Run rm -rf /tmp/coma*
 ADD assets/* /data/coma/
 RUN chmod +x /data/coma/*.sh
-RUN bash -c 'echo "cd /data/coma && ./coma.sh" >> /root/.profile'
-# Autostart firefox (might not be the best way to do it, but it does the trick)
+# tr to run coma at vnc login
+# RUN bash -c 'echo "exec /data/coma/coma.sh" >> /root/.xinitrc'
+
 
 EXPOSE 5900
 ENV DISPLAY :0
