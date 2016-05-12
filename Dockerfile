@@ -21,7 +21,7 @@ ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
 
 # Install vnc, xvfb in order to create a 'fake' display and firefox
 RUN \
-    apt-get install -y x11vnc xvfb firefox && \
+    apt-get install -y x11vnc xvfb xinit && \
     mkdir ~/.vnc && \
     x11vnc -storepasswd 1234 ~/.vnc/passwd
 
